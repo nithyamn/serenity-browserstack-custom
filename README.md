@@ -1,34 +1,33 @@
-# Serenity-BrowserStack
-Run a sample Serenity, Cucumber and Maven test on BrowserStack
+# serenity-browserstack
 
-##Setup
+[Serenity](http://www.thucydides.info/docs/serenity/) Integration with BrowserStack.
 
-Clone this repo: `https://github.com/browserstack/serenity-browserstack`
+![BrowserStack Logo](https://d98b8t1nnulk5.cloudfront.net/production/images/layout/logo-header.png?1469004780)
 
-Note: You need Maven installed.
+<img src="http://www.thucydides.info/docs/serenity/images/serenity-logo.png" height = "100">
 
-## Configuration
-Add BrowserStack Username and Automate-key to `serenity.properties`
-and in `src/test/java/com/browserstack/cucumber/SearchByKeywordLocal.java`
+## Setup
+* Clone the repo
+* Install dependencies `mvn install`
+* Update `serenity.properties` file with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings)
 
-## Run Tests
-1. To run tests on BrowserStack, you simply need to point the hub URL to our Selenium hub 'http://hub.browserstack.com/wd/hub' along with your Username and Automate-key. In Serenity, you can do this using `browserstack.url` parameter as follows:
+## Running your tests
+- To run a single test, run `mvn verify -P single`
+- To run parallel tests, run `mvn verify -P parallel`
+- To run local tests, run `mvn verify -P local`
+
+## Notes
+* You can view your test results on the [BrowserStack Automate dashboard](https://www.browserstack.com/automate)
+* To test on a different set of browsers, check out our [platform configurator](https://www.browserstack.com/automate/java#setting-os-and-browser)
+* You can export the environment variables for the Username and Access Key of your BrowserStack account
   
-  `mvn clean verify -Dbrowserstack.url=http://<username>:<automate-key>@hub.browserstack.com:80/wd/hub`
-
-2. Instead of mentioning the hub url and other browser and OS parameters in command line, you can give them in a `serenity.properties` file and then simply run your tests using the command:
-
-  `mvn clean verify`
-
-- To run sample tests, run `mvn clean verify -Dbrowserstack.url=http://<username>:<automate-key>@hub.browserstack.com:80/wd/hub`
-- To run parallel tests, run `mvn clean verify -Dbrowserstack.url=http://<username>:<automate-key>@hub.browserstack.com:80/wd/hub -f pom_parallel.xml`
-- To run local tests, run `mvn clean verify -Dbrowserstack.url=http://<username>:<automate-key>@hub.browserstack.com:80/wd/hub -Dbrowserstack.local=true -f pom_local.xml`
+  ```
+  export BROWSERSTACK_USERNAME=<browserstack-username> &&
+  export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
+  ```
   
-## Further Reading
-- How to configure capabilities in Serenity while running tests on BrowserStack - http://thucydides.info/docs/serenity-staging/#_running_tests_on_browserstack
-- Serenity Docs - http://thucydides.info/docs/serenity-staging/
-- BrowserStack documentation for Automate - https://www.browserstack.com/automate/java
-
-This sample Serenity-Cucumber example has been taken from Serenity Demo projects [here](https://github.com/serenity-bdd/serenity-demos/tree/master/cucumber-webtests).  
-
-Happy Testing!  
+## Additional Resources
+* [Documentation for writing Automate test scripts in Java](https://www.browserstack.com/automate/java)
+* [Customizing your tests on BrowserStack](https://www.browserstack.com/automate/capabilities)
+* [Browsers & mobile devices for selenium testing on BrowserStack](https://www.browserstack.com/list-of-browsers-and-platforms?product=automate)
+* [Using REST API to access information about your tests via the command-line interface](https://www.browserstack.com/automate/rest-api)
