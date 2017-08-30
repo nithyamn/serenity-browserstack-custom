@@ -13,8 +13,10 @@
 
 ## Running your tests
 - To run a single test, run `mvn verify -P single`
-- To run parallel tests, run `mvn verify -P parallel`
 - To run local tests, run `mvn verify -P local`
+- To run parallel tests, run `mvn verify -P parallel`
+
+ Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 
 ## Notes
 * You can view your test results on the [BrowserStack Automate dashboard](https://www.browserstack.com/automate)
