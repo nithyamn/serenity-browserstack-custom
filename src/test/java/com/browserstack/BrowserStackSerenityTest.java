@@ -24,7 +24,7 @@ public class BrowserStackSerenityTest {
         }
 
         String environment = System.getProperty("environment");
-        String key = "browserstack.local";
+        String key = "bstack_browserstack.local";
         boolean is_local = environmentVariables.getProperty(key) != null && environmentVariables.getProperty(key).equals("true");
 
         if(environment != null && !is_local){
