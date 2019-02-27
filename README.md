@@ -9,7 +9,7 @@
 ## Setup
 * Clone the repo
 * Install dependencies `mvn install`
-* Update `serenity.properties` file with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings)
+* You can setup environment variables for all sample repos (see Notes) or update `serenity.properties` file with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings)
 
 ## Running your tests
 - To run a single test, run `mvn verify -P single`
