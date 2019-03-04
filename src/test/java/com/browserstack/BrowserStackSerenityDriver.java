@@ -53,7 +53,7 @@ public class BrowserStackSerenityDriver implements DriverSource {
         }
 
         try {
-            return new RemoteWebDriver(new URL("http://" + username + ":" + accessKey + "@"
+            return new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@"
                     + environmentVariables.getProperty("browserstack.server") + "/wd/hub"), capabilities);
         } catch (Exception e) {
             System.out.println(e);
