@@ -19,20 +19,22 @@ public class BrowserStackSerenityTest {
         EnvironmentVariables environmentVariables = SystemEnvironmentVariables.createEnvironmentVariables();
 
         String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
-        if(accessKey == null) {
+        if (accessKey == null) {
             accessKey = (String) environmentVariables.getProperty("browserstack.key");
         }
 
         String environment = System.getProperty("environment");
         String key = "bstack_browserstack.local";
-        boolean is_local = environmentVariables.getProperty(key) != null && environmentVariables.getProperty(key).equals("true");
+        boolean is_local = environmentVariables.getProperty(key) != null
+                && environmentVariables.getProperty(key).equals("true");
 
-        if(environment != null && !is_local){
-            key = "environment."+environment+".browserstack.local";
-            is_local = environmentVariables.getProperty(key) != null && environmentVariables.getProperty(key).equals("true");
+        if (environment != null && !is_local) {
+            key = "environment." + environment + ".browserstack.local";
+            is_local = environmentVariables.getProperty(key) != null
+                    && environmentVariables.getProperty(key).equals("true");
         }
 
-        if(is_local){
+        if (is_local) {
             bsLocal = new Local();
             Map<String, String> bsLocalArgs = new HashMap<String, String>();
             bsLocalArgs.put("key", accessKey);
@@ -42,7 +44,7 @@ public class BrowserStackSerenityTest {
 
     @AfterClass
     public static void tearDown() throws Exception {
-        if(bsLocal != null) {
+        if (bsLocal != null) {
             bsLocal.stop();
         }
     }
