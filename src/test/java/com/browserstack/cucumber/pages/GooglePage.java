@@ -9,7 +9,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
-@DefaultUrl("https://www.google.com/ncr")
+@DefaultUrl("page:home.page")
 public class GooglePage extends PageObject {
 
     @FindBy(name = "q")
@@ -19,15 +19,15 @@ public class GooglePage extends PageObject {
     WebElementFacade searchButton;
 
     public void searchForString(String searchString) {
-        search.sendKeys(searchString);
+
+        //search.sendKeys(searchString, Keys.ENTER);
     }
 
     public void submitForm() throws Exception {
-        searchButton.click();
         Thread.sleep(5000);
     }
 
     public void titleShouldMatch(String matchTitle) {
-        assertThat(this.getTitle()).containsIgnoringCase(matchTitle);
+        //assertThat(this.getTitle()).containsIgnoringCase(matchTitle);
     }
 }
